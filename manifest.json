@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+
+    "name": "Challenge Timer",
+    "short_name": "Timer",
+    "description": "Chrome extension that lets you set timer on any web page",
+
+    "version": "1.0",
+    "version_name": "1.0 beta",
+
+    "browser_action" : {
+        "default_title": "Challenge Timer",
+        "default_popup": "timer.html" 
+    },
+
+    "offline_enabled": true
+}

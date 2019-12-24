@@ -1,7 +1,15 @@
+var timerHandler;
+
 document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('startButton');
     link.addEventListener('click', startTimer);
+    document.getElementById('stopButton').addEventListener('click', stopTimer);
 })
+
+function stopTimer() {
+    if(timerHandler !== undefined)
+        clearTimeout(timerHandler);
+}
 
 function startTimer() {
     var timerValue = document.getElementById("clock").value;
@@ -11,18 +19,18 @@ function startTimer() {
     var minutes = Number(timerValue.split(':')[1]);
     var seconds = 0;
 
-    setTimeout(updateTimer, 1000, hours, minutes, seconds);
+    timerHandler = setTimeout(updateTimer, 1000, hours, minutes, seconds);
 }
 
 function updateTimer(hours, minutes, seconds) {
     console.log(hours + ":" + minutes + ":" + seconds);
+
     var updatedSeconds = updateSeconds(seconds);
     var updatedMinutes = updateMinutes(minutes, seconds < updatedSeconds);
     var updatedHours = updateHours(hours, minutes < updatedMinutes);
 
-    //console.log(updatedHours + ":" + updatedMinutes + ":" + updatedSeconds);
     if(updatedSeconds !== 0 || updatedMinutes !== 0 || updatedHours !== 0)
-        setTimeout(updateTimer, 1000, updatedHours, updatedMinutes, updatedSeconds);
+        timerHandler = setTimeout(updateTimer, 1000, updatedHours, updatedMinutes, updatedSeconds);
 }
 
 function updateSeconds(seconds) {

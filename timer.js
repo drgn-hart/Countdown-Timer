@@ -23,8 +23,17 @@ function startTimer() {
 }
 
 function updateTimer(hours, minutes, seconds) {
-    console.log(hours + ":" + minutes + ":" + seconds);
-
+    var time = hours + ":" + minutes + ":" + seconds
+    console.log(time);
+    chrome.tabs.executeScript(
+        {code: 'var currentTime="' + time + '"'},
+        function() {
+            chrome.tabs.executeScript({
+                file: 'updateUI.js'
+            });
+        }
+    );
+    
     var updatedSeconds = updateSeconds(seconds);
     var updatedMinutes = updateMinutes(minutes, seconds < updatedSeconds);
     var updatedHours = updateHours(hours, minutes < updatedMinutes);

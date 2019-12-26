@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
 
-    "name": "Challenge Timer",
+    "name": "Countdown Timer",
     "short_name": "Timer",
     "description": "Chrome extension that lets you set timer on any web page",
 
@@ -12,6 +12,10 @@
         "default_title": "Challenge Timer",
         "default_popup": "timer.html" 
     },
+
+    "permissions": [
+        "activeTab"
+    ],
 
     "offline_enabled": true
 }

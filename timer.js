@@ -22,9 +22,20 @@ function startTimer() {
     timerHandler = setTimeout(updateTimer, 1000, hours, minutes, seconds);
 }
 
-function updateTimer(hours, minutes, seconds) {
-    var time = hours + ":" + minutes + ":" + seconds
-    console.log(time);
+function updateTimer(hours, minutes, seconds) {    
+    var displayHours = hours.toString();
+    var displayMinutes = minutes.toString();
+    var displaySeconds = seconds.toString();    
+    
+    if(displayHours.length < 2)
+        displayHours = "0" + displayHours;
+    if(displayMinutes.length < 2)
+        displayMinutes = "0" + displayMinutes;
+    if(displaySeconds.length < 2)
+        displaySeconds = "0" + displaySeconds;
+
+    var time = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+    
     chrome.tabs.executeScript(
         {code: 'var currentTime="' + time + '"'},
         function() {

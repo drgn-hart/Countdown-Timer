@@ -1,10 +1,7 @@
 var timerHandler;
 
 chrome.runtime.onMessage.addListener(
-    function(request, sender) {
-        console.log(sender.tab ?
-                  "from a content script:" + sender.tab.url :
-                  "from the extension");
+    function(request) {
         if(request.action == "error")
             alert("Please set correct integer values for the timer");
         if(request.action == "start")
@@ -15,12 +12,16 @@ chrome.runtime.onMessage.addListener(
 );
 
 function startTimer(hours, minutes, seconds) {
-    timerHandler = setTimeout(updateTimer, 1000, hours, minutes, seconds);
+    if(timerHandler === undefined) {
+        timerHandler = setTimeout(updateTimer, 1000, hours, minutes, seconds);
+    }
 }
 
 function stopTimer() {
-    if(timerHandler !== undefined)
+    if(timerHandler !== undefined) {
         clearTimeout(timerHandler);
+        timerHandler = undefined;
+    }
 }
 
 function updateTimer(hours, minutes, seconds) {    

@@ -5,20 +5,16 @@ chrome.runtime.onMessage.addListener(
         console.log(sender.tab ?
                   "from a content script:" + sender.tab.url :
                   "from the extension");
+        if(request.action == "error")
+            alert("Please set correct integer values for the timer");
         if(request.action == "start")
-            startTimer(request.value);
+            startTimer(request.hours, request.minutes, 0);
         if(request.action == "stop")
             stopTimer();        
     }
 );
 
-function startTimer(timerValue) {
-
-    //timerValue will be hh:mm format 
-    var hours = Number(timerValue.split(':')[0]);
-    var minutes = Number(timerValue.split(':')[1]);
-    var seconds = 0;
-
+function startTimer(hours, minutes, seconds) {
     timerHandler = setTimeout(updateTimer, 1000, hours, minutes, seconds);
 }
 

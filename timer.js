@@ -6,7 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function startTimer() {
     var timerValue = document.getElementById("clock").value;
-    chrome.runtime.sendMessage({action: "start", value: timerValue});
+
+    var hours = Number(timerValue.split(':')[0]);
+    var minutes = Number(timerValue.split(':')[1]);
+
+    if(isNaN(hours) || isNaN(minutes))
+        chrome.runtime.sendMessage({action: "error"});
+    else
+        chrome.runtime.sendMessage({action: "start", hours: hours, minutes: minutes});
 }
 
 function stopTimer() {

@@ -12,6 +12,9 @@ chrome.runtime.onMessage.addListener(
 );
 
 function startTimer(hours, minutes, seconds) {
+    chrome.tabs.insertCSS({
+        file: 'core/timer.css'
+    });
     if(timerHandler === undefined) {
         timerHandler = setTimeout(updateTimer, 1000, hours, minutes, seconds);
     }
@@ -45,7 +48,7 @@ function updateTimer(hours, minutes, seconds) {
         {code: 'var currentTime="' + time + '"; var color="' + color + '"'},
         function() {
             chrome.tabs.executeScript({
-                file: 'updateUI.js'
+                file: 'core/updateUI.js'
             });
         }
     );
@@ -77,7 +80,7 @@ function getColor(hours, minutes) {
 function clearTimer() {
     timerHandler = undefined;
     chrome.tabs.executeScript({
-        file: 'clearUI.js'
+        file: 'core/clearUI.js'
     });
 }
 

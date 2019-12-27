@@ -10,7 +10,7 @@
 
     "browser_action" : {
         "default_title": "Challenge Timer",
-        "default_popup": "timer.html" 
+        "default_popup": "popout/popout.html" 
     },
 
     "permissions": [
@@ -18,7 +18,7 @@
     ],
 
     "background": {
-        "scripts": ["background.js"],
+        "scripts": ["core/timer.js"],
         "persistent": false
     },
 

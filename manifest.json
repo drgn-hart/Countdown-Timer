@@ -17,5 +17,10 @@
         "activeTab"
     ],
 
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+
     "offline_enabled": true
 }

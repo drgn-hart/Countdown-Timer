@@ -1,0 +1,10 @@
+#countdownTimer {
+    z-index: 2147483638;
+    top: 0px;
+    width: 100%;
+    position: fixed;
+    background-color: green;
+    height: 40px;
+    text-align: center;
+    font-size: x-large;
+}

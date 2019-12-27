@@ -20,7 +20,7 @@ function startTimer(hours, minutes, seconds) {
 function stopTimer() {
     if(timerHandler !== undefined) {
         clearTimeout(timerHandler);
-        timerHandler = undefined;
+        clearTimer();
     }
 }
 
@@ -48,14 +48,23 @@ function updateTimer(hours, minutes, seconds) {
     );
     
     //Stop updating the timer if it reaches 00:00:00
-    if(hours == 0 && minutes == 0 && seconds == 0)
+    if(hours == 0 && minutes == 0 && seconds == 0) {
+        setTimeout(clearTimer, 1000);
         return;
+    }
     
     var updatedSeconds = updateSeconds(seconds);
     var updatedMinutes = updateMinutes(minutes, seconds < updatedSeconds);
     var updatedHours = updateHours(hours, minutes < updatedMinutes);
 
     timerHandler = setTimeout(updateTimer, 1000, updatedHours, updatedMinutes, updatedSeconds);
+}
+
+function clearTimer() {
+    timerHandler = undefined;
+    chrome.tabs.executeScript({
+        file: 'clearUI.js'
+    });
 }
 
 function updateSeconds(seconds) {

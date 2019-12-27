@@ -39,8 +39,10 @@ function updateTimer(hours, minutes, seconds) {
 
     var time = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 
+    var color = getColor(hours, minutes);
+
     chrome.tabs.executeScript(
-        {code: 'var currentTime="' + time + '"'},
+        {code: 'var currentTime="' + time + '"; var color="' + color + '"'},
         function() {
             chrome.tabs.executeScript({
                 file: 'updateUI.js'
@@ -59,6 +61,17 @@ function updateTimer(hours, minutes, seconds) {
     var updatedHours = updateHours(hours, minutes < updatedMinutes);
 
     timerHandler = setTimeout(updateTimer, 1000, updatedHours, updatedMinutes, updatedSeconds);
+}
+
+function getColor(hours, minutes) {
+    let totalMinutes = hours * 60 + minutes;
+
+    if(totalMinutes >= 10)
+        return "green";
+    else if(totalMinutes >= 5)
+        return "yellow";
+    else
+        return "red";
 }
 
 function clearTimer() {

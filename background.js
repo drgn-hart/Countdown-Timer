@@ -46,12 +46,15 @@ function updateTimer(hours, minutes, seconds) {
         }
     );
     
+    //Stop updating the timer if it reaches 00:00:00
+    if(hours == 0 && minutes == 0 && seconds == 0)
+        return;
+    
     var updatedSeconds = updateSeconds(seconds);
     var updatedMinutes = updateMinutes(minutes, seconds < updatedSeconds);
     var updatedHours = updateHours(hours, minutes < updatedMinutes);
 
-    if(updatedSeconds !== 0 || updatedMinutes !== 0 || updatedHours !== 0)
-        timerHandler = setTimeout(updateTimer, 1000, updatedHours, updatedMinutes, updatedSeconds);
+    timerHandler = setTimeout(updateTimer, 1000, updatedHours, updatedMinutes, updatedSeconds);
 }
 
 function updateSeconds(seconds) {

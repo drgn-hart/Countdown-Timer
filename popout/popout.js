@@ -2,10 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('startButton');
     link.addEventListener('click', startTimer);
     document.getElementById('stopButton').addEventListener('click', stopTimer);
-
-    chrome.tabs.insertCSS({
-        file: 'timer.css'
-    });
 });
 
 function startTimer() {

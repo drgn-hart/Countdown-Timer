@@ -18,6 +18,7 @@ function startTimer(hours, minutes, seconds) {
 }
 
 function stopTimer() {
+    //Clear the timeout calls and timer from UI
     if(timerHandler !== undefined) {
         clearTimeout(timerHandler);
         clearTimer();

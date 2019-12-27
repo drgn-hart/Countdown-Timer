@@ -11,7 +11,7 @@ function startTimer() {
     var minutes = Number(timerValue.split(':')[1]);
 
     if(isNaN(hours) || isNaN(minutes))
-    chrome.runtime.sendMessage({action: "error"});
+        chrome.runtime.sendMessage({action: "error"});
     else
         chrome.runtime.sendMessage({action: "start", hours: hours, minutes: minutes});
 }

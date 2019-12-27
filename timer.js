@@ -22,6 +22,7 @@ function startTimer() {
     timerHandler = setTimeout(updateTimer, 1000, hours, minutes, seconds);
 }
 
+
 function updateTimer(hours, minutes, seconds) {    
     var displayHours = hours.toString();
     var displayMinutes = minutes.toString();
@@ -35,7 +36,7 @@ function updateTimer(hours, minutes, seconds) {
         displaySeconds = "0" + displaySeconds;
 
     var time = displayHours + ":" + displayMinutes + ":" + displaySeconds;
-    
+
     chrome.tabs.executeScript(
         {code: 'var currentTime="' + time + '"'},
         function() {

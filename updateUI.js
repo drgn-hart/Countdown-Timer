@@ -7,11 +7,12 @@ if(timerDiv === null) {
     timerDiv.style.top = "0px";
     timerDiv.style.width = "100%";
     timerDiv.style.position = 'fixed';
-    timerDiv.style.backgroundColor = "green";
+    timerDiv.style.backgroundColor = color;
     timerDiv.style.height = "40px";
     timerDiv.style.textAlign = "center";
     timerDiv.style.fontSize = "x-large";
     document.body.appendChild(timerDiv);
 } else {
     timerDiv.innerText = currentTime;
+    timerDiv.style.backgroundColor = color;
 }

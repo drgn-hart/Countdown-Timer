@@ -26,15 +26,14 @@ p {
     width: 70px;
     padding: 5px;
     font: 'Fira Sans';
-    background-color: #6079f2;
+    background-color: #4961cc;
     color: #fff;
     border-width: 2px;
-    border: solid #6079f2;
+    border: solid #4961cc;
     border-radius: 5px;
     margin: 10px 2px 10px 0px;
     outline: none;
 }
-
 
 #stopButton {
     text-align: center;

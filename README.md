@@ -10,4 +10,4 @@ This project was started with keeping interview preparation/competitive coding i
 3. Click on **Load Unpacked** and select the location of src folder of this repository. This should add the extension to your chrome.
 
 ## Preview
-![](extension.gif)
+![](./assets/extension.gif)

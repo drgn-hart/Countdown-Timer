@@ -1,0 +1,14 @@
+{
+  "name": "countdown-timer",
+  "version": "1.0.0",
+  "description": "Timer chrome extension",
+  "main": "popout.js",
+  "repository": "https://github.com/drgn-hart/Challenge-Timer.git",
+  "author": "drgn_hart <dragonheart262@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}

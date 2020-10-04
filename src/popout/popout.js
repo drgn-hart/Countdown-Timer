@@ -1,21 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var link = document.getElementById('startButton');
-    link.addEventListener('click', startTimer);
-    document.getElementById('stopButton').addEventListener('click', stopTimer);
+document.addEventListener("DOMContentLoaded", function() {
+  const link = document.getElementById("startButton");
+  link.addEventListener("click", startTimer);
+  document.getElementById("stopButton").addEventListener("click", stopTimer);
 });
 
+/**
+ * Function to start timer on screen
+ */
 function startTimer() {
-    var timerValue = document.getElementById("clock").value;
+  const timerValue = document.getElementById("clock").value;
 
-    var hours = Number(timerValue.split(':')[0]);
-    var minutes = Number(timerValue.split(':')[1]);
+  const hours = Number(timerValue.split(":")[0]);
+  const minutes = Number(timerValue.split(":")[1]);
 
-    if(isNaN(hours) || isNaN(minutes))
-        chrome.runtime.sendMessage({action: "error"});
-    else
-        chrome.runtime.sendMessage({action: "start", hours: hours, minutes: minutes});
+  if (isNaN(hours) || isNaN(minutes)) {
+    chrome.runtime.sendMessage({action: "error"});
+  } else {
+    chrome.runtime.sendMessage(
+        {action: "start", hours: hours, minutes: minutes});
+  }
 }
 
+/**
+ * Function to stop timer on screen
+*/
 function stopTimer() {
-    chrome.runtime.sendMessage({action: "stop"});
+  chrome.runtime.sendMessage({action: "stop"});
 }

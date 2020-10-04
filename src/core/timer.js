@@ -69,7 +69,7 @@ function updateTimer(hours, minutes, seconds) {
   const color = getColor(hours, minutes);
 
   chrome.tabs.executeScript(
-      {code: "let currentTime=\"" + time + "\"; let color=\"" + color + "\""},
+      {code: "var currentTime=\"" + time + "\"; var color=\"" + color + "\""},
       function() {
         chrome.tabs.executeScript({
           file: "core/updateUI.js",

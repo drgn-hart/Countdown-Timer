@@ -157,3 +157,6 @@ function updateHours(hours, changeHour) {
 
   return hours;
 }
+
+module.exports.updateSeconds = updateSeconds;
+

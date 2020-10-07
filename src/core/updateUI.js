@@ -5,8 +5,15 @@ if (document.getElementById("countdownTimer") === null) {
   timerDiv.id = "countdownTimer";
   timerDiv.innerText = currentTime;
   timerDiv.style.backgroundColor = color;
+  if (color == "yellow"){
+    timerDiv.style.color = "black";
+  }
   document.body.appendChild(timerDiv);
 } else {
   document.getElementById("countdownTimer").innerText = currentTime;
   document.getElementById("countdownTimer").style.backgroundColor = color;
+  if (color == "yellow"){
+    document.getElementById("countdownTimer").style.color = "black";
+  }
+  
 }

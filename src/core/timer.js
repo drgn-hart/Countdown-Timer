@@ -1,4 +1,7 @@
 let timerHandler;
+let memorySeconds;
+let memoryMinutes;
+let memoryHours;
 
 chrome.runtime.onMessage.addListener(
     function(request) {
@@ -11,6 +14,12 @@ chrome.runtime.onMessage.addListener(
       if (request.action == "stop") {
         stopTimer();
       }
+      if (request.action == "pause"){
+        pauseTimer();
+      }
+      if (request.action == "resume"){
+        resumeTimer();
+      } 
     },
 );
 
@@ -22,6 +31,7 @@ chrome.runtime.onMessage.addListener(
  * @param {Number} seconds - seconds for which timer should run
 */
 function startTimer(hours, minutes, seconds) {
+  debugger;
   chrome.tabs.insertCSS({
     file: "core/timer.css",
   });
@@ -32,13 +42,36 @@ function startTimer(hours, minutes, seconds) {
 
 /**
  * Stop the timer
- * This clears the timerHandler so that timer can be reset
+ * This clears the timerHandler remove the UI so that timer can be reset and the UI will be removed
  */
 function stopTimer() {
   // Clear the timeout calls and timer from UI
   if (timerHandler !== undefined) {
     clearTimeout(timerHandler);
     clearTimer();
+  }
+}
+
+/**
+ * Pause the timer
+ * This stop the SetTimeout and keep the timerHandler for resuming
+ */
+function pauseTimer(){
+  if(timerHandler != undefined) {
+    clearTimeout(timerHandler);
+    resume = false;
+  }
+}
+
+/**
+ * Resume the timer
+ * This resume the timer from what it left from pausing
+ */
+var resume = new Boolean(false);
+function resumeTimer(){
+  if (resume == false){
+    timerHandler = setTimeout(updateTimer, 1000, memoryHours, memoryMinutes, memorySeconds);
+    resume = true;
   }
 }
 
@@ -53,6 +86,9 @@ function updateTimer(hours, minutes, seconds) {
   let displayHours = hours.toString();
   let displayMinutes = minutes.toString();
   let displaySeconds = seconds.toString();
+  memorySeconds = seconds;
+  memoryMinutes = minutes;
+  memoryHours = hours;
 
   if (displayHours.length < 2) {
     displayHours = "0" + displayHours;

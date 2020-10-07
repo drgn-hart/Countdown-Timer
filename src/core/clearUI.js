@@ -1,6 +1,4 @@
-const timerDiv = document.getElementById("countdownTimer");
-
 // Remove timer from the page if it exists
-if (timerDiv !== null) {
-  document.body.removeChild(timerDiv);
+if (document.getElementById("countdownTimer") !== null) {
+  document.body.removeChild(document.getElementById("countdownTimer"));
 }

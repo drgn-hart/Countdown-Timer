@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const link = document.getElementById("startButton");
   link.addEventListener("click", startTimer);
   document.getElementById("stopButton").addEventListener("click", stopTimer);
+  document.getElementById("pauseButton").addEventListener("click", pauseTimer);
+  document.getElementById("resumeButton").addEventListener("click", resumeTimer);
 });
 
 /**
@@ -26,4 +28,18 @@ function startTimer() {
 */
 function stopTimer() {
   chrome.runtime.sendMessage({action: "stop"});
+}
+
+/**
+ * Function to pause timer on screen
+*/
+function pauseTimer(){
+  chrome.runtime.sendMessage({action: "pause"});
+}
+
+/**
+ * Function to resume timer on screen
+*/
+function resumeTimer(){
+  chrome.runtime.sendMessage({action: "resume"});
 }

@@ -31,7 +31,6 @@ chrome.runtime.onMessage.addListener(
  * @param {Number} seconds - seconds for which timer should run
 */
 function startTimer(hours, minutes, seconds) {
-  debugger;
   chrome.tabs.insertCSS({
     file: "core/timer.css",
   });

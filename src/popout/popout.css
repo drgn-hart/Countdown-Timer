@@ -1,6 +1,6 @@
 body {
-    width: 134px;
-    height: 100px;
+    width: 140px;
+    height: 105px;
 }
 
 p {
@@ -10,7 +10,7 @@ p {
 
 #startButton {
     text-align: center;
-    width: 70px;
+    width: 65px;
     padding: 5px;
     font: 'Fira Sans';
     background-color: #6881FF;
@@ -23,7 +23,7 @@ p {
 }
 #startButton:active {
     text-align: center;
-    width: 70px;
+    width: 65px;
     padding: 5px;
     font: 'Fira Sans';
     background-color: #4961cc;
@@ -37,7 +37,7 @@ p {
 
 #stopButton {
     text-align: center;
-    width: 70px;
+    width: 65px;
     padding: 6px;
     font: 'Fira Sans';
     background-color: #fff;
@@ -50,7 +50,65 @@ p {
 }
 #stopButton:active {
     text-align: center;
-    width: 70px;
+    width: 65px;
+    padding: 6px;
+    font: 'Fira Sans';
+    background-color: #f2f2f2;
+    color: #6881FF;
+    border: solid #6881FF;
+    border-width: 2px;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px 0px 10px 2px;
+}
+
+
+#pauseButton {
+    text-align: center;
+    width: 65px;
+    padding: 5px;
+    font: 'Fira Sans';
+    background-color: #6881FF;
+    color: #fff;
+    border-width: 2px;
+    border: solid #6881FF;
+    border-radius: 5px;
+    margin: 10px 2px 10px 0px;
+    outline: none;
+}
+#pauseButton:active {
+    text-align: center;
+    width: 65px;
+    padding: 5px;
+    font: 'Fira Sans';
+    background-color: #4961cc;
+    color: #fff;
+    border-width: 2px;
+    border: solid #4961cc;
+    border-radius: 5px;
+    margin: 10px 2px 10px 0px;
+    outline: none;
+}
+
+
+#resumeButton {
+    display: block;
+    text-align: center;
+    width: 65px;
+    padding: 6px;
+    font: 'Fira Sans';
+    background-color: #fff;
+    color: #6881FF;
+    border: solid #6881FF;
+    border-width: 2px;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px 0px 10px 2px;
+}
+#resumeButton:active {
+    display: block;
+    text-align: center;
+    width: 65px;
     padding: 6px;
     font: 'Fira Sans';
     background-color: #f2f2f2;
